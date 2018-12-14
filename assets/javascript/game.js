@@ -1,5 +1,5 @@
 // create wordbank
-var wordBank = ["wordo", "secondo", "thirdi"];
+var wordBank = ["fate", "stay", "night", "unlimited", "blade", "works", "heavens", "feel"];
 var word = "";
 var misses = 0;
 var usedGuess = "";
@@ -45,11 +45,13 @@ function checkReused(check) {
 
 // Lose game
 function gameLost(){
+  alert("lost");
   gameStart();
 }
 
 // Game Win
 function gameWon(){
+  alert("win");
   gameStart();
 }
 
@@ -67,17 +69,12 @@ document.onkeyup = function (event) {
         //Incorrect Guess
         if (!word.includes(guess)) {
           misses++;
-          if(misses === 5)
-            gameLost();
           break;
         } 
         //Correct Guess
         else if (guess === word.charAt(i)) {
           blankWord = setCharAt(blankWord, i, guess);
           document.getElementById("word").innerHTML = blankWord;
-          if(blankWord === word){
-            gameWon();
-          }
         }
       }
 
@@ -89,4 +86,8 @@ document.onkeyup = function (event) {
   else{
     alert("Reused Key")
   }
+  if(blankWord === word)
+    gameWon();
+  if(misses === 5)
+    gameLost();
 }
