@@ -57,17 +57,18 @@ function gameLost(){
 function gameWon(){
   alert("win");
   wins++;
-  document.getElementById("win").innerHTML = `Wins: ${losses}`;
+  document.getElementById("win").innerHTML = `Wins: ${wins}`;
   gameStart();
 }
 
 //Key inputs
 document.onkeyup = function (event) {
   var guess = event.key.toLowerCase();
-  // Check to see if key reused
+  // Check if player has guesses left
   if(misses < 10){
+    // Check to see if key reused
     if(checkReused(event.key.toLowerCase())){
-      usedGuess+=guess + ",";
+      usedGuess+=guess + ", ";
       document.getElementById("used-keys").innerHTML = `Used Keys: ${usedGuess}`;
       // Check to see if valid key is placed  
       if (guess.length === 1 && isNaN(guess)) {
@@ -107,6 +108,8 @@ function buttonPress(){
       gameWon();
     else if(misses > 0)
       gameLost();
+    else
+      gameStart();
   }
   else{
     gameStart();
