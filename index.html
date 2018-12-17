@@ -12,10 +12,49 @@
 </head>
 
 <body>
-  <h1>Word Guess Game</h1>
-
-  <h4 id = "word"></h4>
-  <h5 id = "used-keys"></h5>
+    <!-- heading -->
+    <div class="jumbotron-fluid .jumbotron-custom text-center">
+      <div class = "container">
+          <h1>Word Guess Game</h1>
+          <p class="lead">Guess the word by using the keyboard, you only have 10 chances</p>
+          <hr class="my-2">
+          <p>Press the button to begin</p>
+          <p class="lead">
+            <a id= "gameStart" class="btn btn-primary btn-lg" onclick="buttonPress()" role="button">Start Game</a>
+          </p>
+      </div>
+    </div>
+  <div class = "container">
+    <div class = "row text-center">
+      <div class = "col">
+        <h2 id = "word">WORD</h2>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col -5">
+          <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Game Info</h4>
+                <p class="card-text">
+                    <h5 id = "used-keys">Used Keys:</h5>
+                    <h5 id = "misses">Misses:</h5>
+                </p>
+              </div>
+            </div>
+      </div>
+      <div class = "col -5">
+          <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Wins/Losses</h4>
+                <p class="card-text">
+                    <h5 id = "win">Wins:</h5>
+                    <h5 id = "loss">Losses:</h5>
+                </p>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
